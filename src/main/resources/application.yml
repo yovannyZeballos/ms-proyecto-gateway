@@ -1,0 +1,24 @@
+server:
+  port: ${PORT:4040}
+spring:
+  application:
+    name: ms-proyecto-gateway
+  profiles:
+    default: prod
+  config:
+    import: "optional:configserver:https://ms-config-server.onrender.com"
+api:
+  base:
+    auth: https://ms-proyecto-auth-server.onrender.com/ms-proyecto-auth-server/auth
+eureka:
+  client:
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: https://ms-registry-server.onrender.com/eureka/
+
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %magenta([%thread]) [%-5level] %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n'
+  level:
+    org.springframework.web: ERROR
