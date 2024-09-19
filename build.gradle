@@ -48,6 +48,10 @@ dependencyManagement {
 	}
 }
 
+bootJar {
+    archiveFileName = "ms-proyecto-gateway-${version}.jar"
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
